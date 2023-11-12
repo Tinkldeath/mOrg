@@ -1,0 +1,13 @@
+platform :ios, '15.0'
+
+target 'mOrganization' do
+  	use_frameworks!
+	
+	pod 'RxSwift'
+	pod 'RxCocoa'
+	pod 'SwiftGen'
+  pod 'FirebaseAuth'
+  pod 'FirebaseStorage'
+  pod 'FirebaseFirestore'
+
+end
