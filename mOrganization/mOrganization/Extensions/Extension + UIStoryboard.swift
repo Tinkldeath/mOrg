@@ -10,8 +10,8 @@ import UIKit
 
 
 enum Stroryboard: String {
-    case main = "Main"
     case auth = "Auth"
+    case business = "Business"
 }
 
 extension UIStoryboard {

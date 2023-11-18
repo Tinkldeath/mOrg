@@ -22,7 +22,7 @@ class SignUpViewController: BaseViewController, AuthRoutable {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var startButton: UIButton!
     
-    private var viewModel: SignUpViewModel = SignUpViewModel()
+    var viewModel: SignUpViewModel?
     var coordinator: AuthCoordinator?
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,11 +31,17 @@ class SignUpViewController: BaseViewController, AuthRoutable {
         navigationController?.isNavigationBarHidden = false
         organizationImageView.layer.borderColor = UIColor.label.cgColor
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.isNavigationBarHidden = true
+    }
 
     override func bind() {
         super.bind()
         
-        viewModel.isValidInput.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] value in
+        viewModel?.isValidInput.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] value in
             self?.startButton.isEnabled = value
         }).disposed(by: disposeBag)
         
@@ -52,6 +58,22 @@ class SignUpViewController: BaseViewController, AuthRoutable {
             imagePicker.delegate = self
             self?.present(imagePicker, animated: true)
         }).disposed(by: disposeBag)
+        
+        viewModel?.signUpStartEvent.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] _ in
+            self?.displayLoading()
+        }).disposed(by: disposeBag)
+        
+        viewModel?.signUpEndEvent.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] completed, message in
+            self?.displayEndLoading()
+            let alertTitle = completed ? "Success" : "Error"
+            self?.presentAlert(alertTitle, message, {
+                self?.coordinator?.coordinateUserFlow()
+            })
+        }).disposed(by: disposeBag)
+        
+        startButton.rx.tap.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] _ in
+            self?.viewModel?.signUp()
+        }).disposed(by: disposeBag)
     }
     
     override func didSwipeLeft() {
@@ -61,7 +83,7 @@ class SignUpViewController: BaseViewController, AuthRoutable {
     
     private func inputToViewModel() {
         guard let type = typeSegmentedControl.titleForSegment(at: typeSegmentedControl.selectedSegmentIndex) else { return }
-        viewModel.enterInput(.init(title: titleTextField.text ?? "", type: type, adress: adressTextField.text ?? "", email: emailTextField.text ?? "", password: passwordTextField.text ?? "", image: organizationImageView.image))
+        viewModel?.enterInput(.init(title: titleTextField.text ?? "", type: type, adress: adressTextField.text ?? "", email: emailTextField.text ?? "", password: passwordTextField.text ?? "", image: organizationImageView.image))
     }
     
 }

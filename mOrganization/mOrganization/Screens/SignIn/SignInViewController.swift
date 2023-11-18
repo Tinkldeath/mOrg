@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 
-class SignInViewController: BaseViewController, AuthRoutable {
+final class SignInViewController: BaseViewController, AuthRoutable {
     
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var signInButton: UIButton!
@@ -19,7 +19,7 @@ class SignInViewController: BaseViewController, AuthRoutable {
     @IBOutlet weak var privacyButton: UIButton!
     @IBOutlet weak var termsButton: UIButton!
     
-    private var viewModel: SignInViewModel = SignInViewModel()
+    var viewModel: SignInViewModel?
     var coordinator: AuthCoordinator?
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,7 +31,7 @@ class SignInViewController: BaseViewController, AuthRoutable {
     override func bind() {
         super.bind()
         
-        viewModel.isInputValid.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] value in
+        viewModel?.isInputValid.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] value in
             self?.signInButton.isEnabled = value
         }).disposed(by: disposeBag)
         
@@ -40,11 +40,11 @@ class SignInViewController: BaseViewController, AuthRoutable {
         }).disposed(by: disposeBag)
         
         emailTextField.rx.text.changed.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] _ in
-            self?.viewModel.enterInput(.init(email: self?.emailTextField.text ?? "", password: self?.passwordTextField.text ?? ""))
+            self?.viewModel?.enterInput(.init(email: self?.emailTextField.text ?? "", password: self?.passwordTextField.text ?? ""))
         }).disposed(by: disposeBag)
         
         passwordTextField.rx.text.changed.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] _ in
-            self?.viewModel.enterInput(.init(email: self?.emailTextField.text ?? "", password: self?.passwordTextField.text ?? ""))
+            self?.viewModel?.enterInput(.init(email: self?.emailTextField.text ?? "", password: self?.passwordTextField.text ?? ""))
         }).disposed(by: disposeBag)
         
         privacyButton.rx.tap.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] _ in
@@ -54,6 +54,23 @@ class SignInViewController: BaseViewController, AuthRoutable {
         termsButton.rx.tap.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] _ in
             self?.coordinator?.coordinateTermsOfUse()
         }).disposed(by: disposeBag)
+        
+        viewModel?.signInStartEvent.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] _ in
+            self?.displayLoading()
+        }).disposed(by: disposeBag)
+        
+        viewModel?.signInEndEvent.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] signInResult, message in
+            self?.displayEndLoading()
+            let alertTitle = signInResult ? "Success" : "Error"
+            self?.presentAlert(alertTitle, message, {
+                self?.coordinator?.coordinateUserFlow()
+            })
+        }).disposed(by: disposeBag)
+        
+        signInButton.rx.tap.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] in
+            self?.viewModel?.signIn()
+        }).disposed(by: disposeBag)
+        
     }
 
 }

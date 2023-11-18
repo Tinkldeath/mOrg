@@ -19,10 +19,11 @@ protocol AppCoordinator {
 final class GlobalCoordinator: AppCoordinator {
     
     private var navigationController = UINavigationController()
+    private var managerFactory = DefaultManagerFactory()
     private var window: UIWindow?
     
     private lazy var authCoordinator: AuthCoordinator = {
-        let authCoordinator = GeneralAuthCoordinator(navigationController)
+        let authCoordinator = GeneralAuthCoordinator(navigationController, managerFactory)
         return authCoordinator
     }()
     

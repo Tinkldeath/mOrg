@@ -25,3 +25,11 @@ extension String {
     }
     
 }
+
+extension String? {
+    
+    func orEmpty() -> String {
+        return self ?? ""
+    }
+    
+}

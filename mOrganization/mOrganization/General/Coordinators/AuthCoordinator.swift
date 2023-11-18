@@ -20,6 +20,7 @@ protocol AuthCoordinator {
     func coordinateSignUp()
     func coordinatePrivacy()
     func coordinateTermsOfUse()
+    func coordinateUserFlow()
 }
 
 
@@ -27,13 +28,17 @@ final class GeneralAuthCoordinator: AuthCoordinator {
     
     private var navigationController: UINavigationController
     
-    init(_ navigationController: UINavigationController) {
+    private var managerFactory: ManagerFactory
+    
+    init(_ navigationController: UINavigationController, _ managerFactory: ManagerFactory) {
         self.navigationController = navigationController
+        self.managerFactory = managerFactory
     }
     
     func start() {
         navigationController.isNavigationBarHidden = true
         let vc: SignInViewController = UIStoryboard.getViewController(.auth, "SignInViewController")
+        vc.viewModel = SignInViewModel(managerFactory)
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
     }
@@ -44,6 +49,7 @@ final class GeneralAuthCoordinator: AuthCoordinator {
     
     func coordinateSignUp() {
         let vc: SignUpViewController = UIStoryboard.getViewController(.auth, "SignUpViewController")
+        vc.viewModel = SignUpViewModel(managerFactory)
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
@@ -64,6 +70,18 @@ final class GeneralAuthCoordinator: AuthCoordinator {
         viewModel.loadTextFromUrl(url)
         vc.viewModel = viewModel
         navigationController.present(vc, animated: true)
+    }
+    
+    func coordinateUserFlow() {
+        let storageManager = managerFactory.getStorageManager()
+        guard let user = storageManager.systemUser else { return }
+        switch user.type {
+        case .business:
+            let vc: UITabBarController = UIStoryboard.getViewController(.business, "BusinessTabBarController")
+            navigationController.pushViewController(vc, animated: true)
+        default:
+            return
+        }
     }
     
 }
