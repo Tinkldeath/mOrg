@@ -10,9 +10,7 @@ import UIKit
 
 
 protocol AppCoordinator {
-    
     func start()
-    
 }
 
 
@@ -35,7 +33,12 @@ final class GlobalCoordinator: AppCoordinator {
     func start() {
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
-        authCoordinator.start()
+        let storageManager = managerFactory.getStorageManager()
+        if let _ = storageManager.systemUser {
+            authCoordinator.coordinateUserFlow()
+        } else {
+            authCoordinator.start()
+        }
     }
 
 }

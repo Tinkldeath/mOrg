@@ -100,11 +100,80 @@
                     <view key="view" contentMode="scaleToFill" id="5nj-dU-j7F">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TE0-bd-O0I">
+                                <rect key="frame" x="10" y="103" width="373" height="32"/>
+                                <segments>
+                                    <segment title="Mail"/>
+                                    <segment title="Documents"/>
+                                </segments>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fYn-iR-h2F">
+                                <rect key="frame" x="10" y="188" width="373" height="571"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="TtO-a9-npb">
+                                        <rect key="frame" x="0.0" y="50" width="373" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TtO-a9-npb" id="Ymi-yB-erc">
+                                            <rect key="frame" x="0.0" y="0.0" width="373" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" systemColor="systemGrayColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search..." minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hp4-0M-jzM">
+                                <rect key="frame" x="10" y="144" width="328" height="34"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="su6-Bl-07a">
+                                <rect key="frame" x="348" y="144" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="Akk-m2-lqu"/>
+                                    <constraint firstAttribute="height" constant="35" id="JSq-GH-66M"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="slider.horizontal.3" catalog="system">
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ibl-JV-nZU"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fYn-iR-h2F" firstAttribute="top" secondItem="hp4-0M-jzM" secondAttribute="bottom" constant="10" id="3s6-mP-3q7"/>
+                            <constraint firstItem="ibl-JV-nZU" firstAttribute="trailing" secondItem="su6-Bl-07a" secondAttribute="trailing" constant="10" id="Dv8-k5-kvf"/>
+                            <constraint firstItem="TE0-bd-O0I" firstAttribute="top" secondItem="ibl-JV-nZU" secondAttribute="top" id="K6s-7L-GJR"/>
+                            <constraint firstItem="ibl-JV-nZU" firstAttribute="bottom" secondItem="fYn-iR-h2F" secondAttribute="bottom" constant="10" id="gsl-at-3VY"/>
+                            <constraint firstItem="su6-Bl-07a" firstAttribute="leading" secondItem="hp4-0M-jzM" secondAttribute="trailing" constant="10" id="mil-wa-W0Y"/>
+                            <constraint firstItem="hp4-0M-jzM" firstAttribute="leading" secondItem="ibl-JV-nZU" secondAttribute="leading" constant="10" id="o6n-tP-Aph"/>
+                            <constraint firstItem="ibl-JV-nZU" firstAttribute="trailing" secondItem="TE0-bd-O0I" secondAttribute="trailing" constant="10" id="oTY-KC-ObT"/>
+                            <constraint firstItem="fYn-iR-h2F" firstAttribute="leading" secondItem="ibl-JV-nZU" secondAttribute="leading" constant="10" id="sc8-kO-fAi"/>
+                            <constraint firstItem="TE0-bd-O0I" firstAttribute="leading" secondItem="ibl-JV-nZU" secondAttribute="leading" constant="10" id="sft-TH-Rwg"/>
+                            <constraint firstItem="ibl-JV-nZU" firstAttribute="trailing" secondItem="fYn-iR-h2F" secondAttribute="trailing" constant="10" id="shI-d3-M8t"/>
+                            <constraint firstItem="hp4-0M-jzM" firstAttribute="top" secondItem="TE0-bd-O0I" secondAttribute="bottom" constant="10" id="ymk-aq-GD0"/>
+                            <constraint firstItem="su6-Bl-07a" firstAttribute="top" secondItem="TE0-bd-O0I" secondAttribute="bottom" constant="10" id="zRD-rO-3zb"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vJ8-w4-rJz">
                         <barButtonItem key="leftBarButtonItem" image="gear" catalog="system" id="58r-xE-dtR">
+                            <color key="tintColor" systemColor="labelColor"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="plus.circle" catalog="system" id="UiU-LW-pNy">
                             <color key="tintColor" systemColor="labelColor"/>
                         </barButtonItem>
                     </navigationItem>
@@ -112,7 +181,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxN-GU-4gk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1744" y="1263"/>
+            <point key="canvasLocation" x="-1744.2748091603053" y="1262.6760563380283"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Yuh-ms-Sfd">
@@ -251,11 +320,16 @@
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.2" catalog="system" width="128" height="82"/>
         <image name="person.text.rectangle" catalog="system" width="128" height="93"/>
+        <image name="plus.circle" catalog="system" width="128" height="123"/>
+        <image name="slider.horizontal.3" catalog="system" width="128" height="99"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

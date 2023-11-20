@@ -73,6 +73,7 @@ final class GeneralAuthCoordinator: AuthCoordinator {
     }
     
     func coordinateUserFlow() {
+        let ciper = AesSecurityManager()
         let storageManager = managerFactory.getStorageManager()
         guard let user = storageManager.systemUser else { return }
         switch user.type {

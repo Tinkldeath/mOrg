@@ -34,6 +34,8 @@
 		3284826E2B014F680099C1F1 /* TextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3284826D2B014F680099C1F1 /* TextViewModel.swift */; };
 		328482722B0154540099C1F1 /* Terms.md in Resources */ = {isa = PBXBuildFile; fileRef = 328482702B0153560099C1F1 /* Terms.md */; };
 		328482732B0154540099C1F1 /* Privacy.md in Resources */ = {isa = PBXBuildFile; fileRef = 328482712B0153E60099C1F1 /* Privacy.md */; };
+		3287F8F32B08F2F800F7A4D2 /* SecurityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3287F8F22B08F2F800F7A4D2 /* SecurityManager.swift */; };
+		3287F8F62B08F5D900F7A4D2 /* FunctionalitySector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3287F8F52B08F5D900F7A4D2 /* FunctionalitySector.swift */; };
 		32893AE02B01199700151AC4 /* FirebaseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32893ADF2B01199700151AC4 /* FirebaseEntity.swift */; };
 		329FDADA2B0133E6006678EE /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329FDAD92B0133E6006678EE /* SignInViewModel.swift */; };
 		329FDADC2B0134B1006678EE /* Extension + String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329FDADB2B0134B1006678EE /* Extension + String.swift */; };
@@ -91,6 +93,8 @@
 		3284826D2B014F680099C1F1 /* TextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewModel.swift; sourceTree = "<group>"; };
 		328482702B0153560099C1F1 /* Terms.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Terms.md; sourceTree = "<group>"; };
 		328482712B0153E60099C1F1 /* Privacy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Privacy.md; sourceTree = "<group>"; };
+		3287F8F22B08F2F800F7A4D2 /* SecurityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityManager.swift; sourceTree = "<group>"; };
+		3287F8F52B08F5D900F7A4D2 /* FunctionalitySector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalitySector.swift; sourceTree = "<group>"; };
 		32893ADF2B01199700151AC4 /* FirebaseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseEntity.swift; sourceTree = "<group>"; };
 		329FDAD92B0133E6006678EE /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		329FDADB2B0134B1006678EE /* Extension + String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + String.swift"; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 				32101EF12B08CFA2005F9DC3 /* AuthManager.swift */,
 				32101EF72B08D43D005F9DC3 /* StorageManager.swift */,
 				32101EF92B08DDB3005F9DC3 /* ManagerFactory.swift */,
+				3287F8F22B08F2F800F7A4D2 /* SecurityManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 		325751292B00F292004A3DF3 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				3287F8F42B08F5CE00F7A4D2 /* Domain */,
 				32101EF02B08CF94005F9DC3 /* Managers */,
 				3235E91A2B01168C00B939C3 /* Model */,
 				3257513D2B0101E9004A3DF3 /* Coordinators */,
@@ -302,6 +308,14 @@
 				3284826D2B014F680099C1F1 /* TextViewModel.swift */,
 			);
 			path = "Privacy and Terms";
+			sourceTree = "<group>";
+		};
+		3287F8F42B08F5CE00F7A4D2 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				3287F8F52B08F5D900F7A4D2 /* FunctionalitySector.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		7939A26687226BF79A4CFAC1 /* Frameworks */ = {
@@ -501,6 +515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3257512E2B00F2CE004A3DF3 /* AppCoordinator.swift in Sources */,
+				3287F8F32B08F2F800F7A4D2 /* SecurityManager.swift in Sources */,
 				32101EF62B08D3DE005F9DC3 /* Constants.swift in Sources */,
 				325750F12B00F092004A3DF3 /* AppDelegate.swift in Sources */,
 				32893AE02B01199700151AC4 /* FirebaseEntity.swift in Sources */,
@@ -509,6 +524,7 @@
 				3284826C2B014F280099C1F1 /* TextViewController.swift in Sources */,
 				32101EF82B08D43D005F9DC3 /* StorageManager.swift in Sources */,
 				32101EFA2B08DDB3005F9DC3 /* ManagerFactory.swift in Sources */,
+				3287F8F62B08F5D900F7A4D2 /* FunctionalitySector.swift in Sources */,
 				3257513C2B0101C1004A3DF3 /* SignUpViewController.swift in Sources */,
 				32101EF22B08CFA2005F9DC3 /* AuthManager.swift in Sources */,
 				329FDADE2B013772006678EE /* SignUpViewModel.swift in Sources */,
