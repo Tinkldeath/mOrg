@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 extension String {
     
     func isValidEmail() -> Bool {
@@ -16,7 +15,6 @@ extension String {
         return emailPredicate.evaluate(with: self)
     }
     
-    // Метод для валидации пароля
     func isValidPassword() -> Bool {
         // Пароль должен содержать как минимум 8 символов, включая цифры и буквы
         let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
@@ -24,6 +22,13 @@ extension String {
         return passwordPredicate.evaluate(with: self)
     }
     
+    static func generateRandomNumberString(_ length: Int) -> String {
+        var result = ""
+        for _ in 0..<length {
+            result += "\(Int.random(in: 0..<10))"
+        }
+        return result
+    }
 }
 
 extension String? {
@@ -31,5 +36,4 @@ extension String? {
     func orEmpty() -> String {
         return self ?? ""
     }
-    
 }

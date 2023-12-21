@@ -8,7 +8,6 @@
 import UIKit
 import RxCocoa
 
-
 class TextViewController: BaseViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
