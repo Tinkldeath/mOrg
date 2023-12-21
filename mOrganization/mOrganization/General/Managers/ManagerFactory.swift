@@ -7,24 +7,17 @@
 
 import Foundation
 
-
 protocol ManagerFactory {
-    func getAuthManager() -> AuthManager
-    func getStorageManager() -> StorageManager
+    var authManager: AuthManager { get }
+    var businessManager: BusinessManager { get }
+    var employeeManager: EmployeeManager { get }
 }
-
 
 final class DefaultManagerFactory: ManagerFactory {
     
-    private let authManager = DefaultAuthManager()
-    private let storageManager = UserDefaultsStorageManager()
+    let authManager: AuthManager = DefaultAuthManager()
     
-    func getAuthManager() -> AuthManager {
-        return authManager
-    }
+    let businessManager: BusinessManager = DefaultBusinessManager(FirebaseDataStore.shared)
     
-    func getStorageManager() -> StorageManager {
-        return storageManager
-    }
-    
+    let employeeManager: EmployeeManager = DefaultEmployeeManager(FirebaseDataStore.shared)
 }

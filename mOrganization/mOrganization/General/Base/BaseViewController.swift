@@ -9,10 +9,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-
+// MARK: - Base class extends life cycle
 class BaseViewController: UIViewController {
     
     let disposeBag = DisposeBag()
+    
+    var coordinator: AppCoordinator?
     
     private var activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .medium)
@@ -20,12 +22,7 @@ class BaseViewController: UIViewController {
         indicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         return indicator
     }()
-    
-    private lazy var tapGesture: UITapGestureRecognizer = {
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapViewSpace))
-        return gesture
-    }()
-    
+        
     private lazy var swipeGesture: UISwipeGestureRecognizer = {
         let gesture = UISwipeGestureRecognizer(target: self, action: #selector(didSwipeLeft))
         return gesture
@@ -37,10 +34,7 @@ class BaseViewController: UIViewController {
         bind()
     }
     
-    func setupViewController() {
-        view.addGestureRecognizer(tapGesture)
-        view.addGestureRecognizer(swipeGesture)
-    }
+    func setupViewController() {  }
     
     func bind() {  }
     
@@ -59,10 +53,6 @@ class BaseViewController: UIViewController {
         activityIndicator.removeFromSuperview()
     }
     
-    @objc func didTapViewSpace() {
-        view.endEditing(true)
-    }
-    
     @objc func didSwipeLeft() {  }
     
     func presentAlert(_ title: String?, _ message: String?, _ completion: @escaping () -> ()) {
@@ -73,4 +63,28 @@ class BaseViewController: UIViewController {
         self.present(ac, animated: true)
     }
     
+    func presentFastAlert(_ title: String) {
+        let ac = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
+        present(ac, animated: true)
+        ac.dismiss(animated: true)
+    }
+}
+
+// MARK: - Base class for input (text fields, pickers etc.)
+class BaseInputViewController: BaseViewController {
+    
+    private lazy var tapGesture: UITapGestureRecognizer = {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapViewSpace))
+        return gesture
+    }()
+    
+    @objc func didTapViewSpace() {
+        view.endEditing(true)
+    }
+    
+    override func setupViewController() {
+        super.setupViewController()
+        
+        view.addGestureRecognizer(tapGesture)
+    }
 }

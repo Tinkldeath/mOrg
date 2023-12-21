@@ -9,5 +9,6 @@ target 'mOrganization' do
   pod 'FirebaseAuth'
   pod 'FirebaseStorage'
   pod 'FirebaseFirestore'
-
+  pod 'FirebaseFirestoreSwift'
+  
 end
