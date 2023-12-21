@@ -20,6 +20,7 @@ final class AddMailViewModel {
     private var authManager: AuthManager
     private var employeeManager: EmployeeManager
     private var mailManager: MailManager
+    let imageManager: ImageManager
     
     private var input: Input?
     private var selectedReciever: String?
@@ -29,6 +30,7 @@ final class AddMailViewModel {
         self.authManager = managerFactory.authManager
         self.employeeManager = managerFactory.employeeManager
         self.mailManager = managerFactory.mailManager
+        self.imageManager = managerFactory.imageManager
         initialize()
     }
     
@@ -78,7 +80,7 @@ extension AddMailViewModel {
         guard let userId = authManager.currentUser else { return }
         if let businessId = businessManager.currentBusiness {
             employeeManager.observeEmployee(for: businessId) { [weak self] employee in
-                let recievers = employee.filter({ $0.uid != userId }).map({ MailReciever(uid: $0.uid, title: $0.fullName, subtitle: $0.type.rawValue) })
+                let recievers = employee.filter({ $0.uid != userId }).map({ MailReciever(uid: $0.uid, title: $0.fullName, subtitle: $0.type.rawValue, imageUrl:  $0.imageUrl) })
                 self?.recievers.accept(recievers)
             }
         }
@@ -90,7 +92,7 @@ extension AddMailViewModel {
                     var results = [MailReciever]()
                     results.append(MailReciever(uid: business.uid, title: business.title, subtitle: business.type.rawValue))
                     self?.employeeManager.observeEmployee(for: businessId, { employee in
-                        let recievers = employee.filter({ $0.uid != userId }).map({ MailReciever(uid: $0.uid, title: $0.fullName, subtitle: $0.type.rawValue) })
+                        let recievers = employee.filter({ $0.uid != userId }).map({ MailReciever(uid: $0.uid, title: $0.fullName, subtitle: $0.type.rawValue, imageUrl: $0.imageUrl) })
                         results.append(contentsOf: recievers)
                         self?.recievers.accept(results)
                     })

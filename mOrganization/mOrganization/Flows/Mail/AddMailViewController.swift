@@ -29,9 +29,12 @@ class RecieverCell: UITableViewCell {
     @IBOutlet private weak var personFullName: UILabel!
     @IBOutlet private weak var personRole: UILabel!
     
+    func setImage(_ image: UIImage) {
+        personImageView.image = image
+    }
 }
 
-class AddMailViewController: BaseViewController {
+class AddMailViewController: BaseInputViewController {
     
     var viewModel: AddMailViewModel?
 
@@ -49,8 +52,13 @@ class AddMailViewController: BaseViewController {
         
         viewModel?.isValidInput.asDriver().drive(sendButton.rx.isEnabled).disposed(by: disposeBag)
         
-        viewModel?.recievers.asDriver().drive(tableView.rx.items(cellIdentifier: "RecieverCell", cellType: RecieverCell.self)) { row, item, cell in
+        viewModel?.recievers.asDriver().drive(tableView.rx.items(cellIdentifier: "RecieverCell", cellType: RecieverCell.self)) { [weak self] row, item, cell in
             cell.reciever = item
+            guard let imageUrl = item.imageUrl else { return }
+            self?.viewModel?.imageManager.fetchImage(imageUrl, { image in
+                guard let image = image else { return }
+                cell.setImage(image)
+            })
         }.disposed(by: disposeBag)
         
         viewModel?.loadingRelay.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] _ in
@@ -65,7 +73,6 @@ class AddMailViewController: BaseViewController {
         }).disposed(by: disposeBag)
         
         tableView.rx.itemSelected.asDriver().drive(onNext: { [weak self] indexPath in
-            print("Did select reciever")
             self?.viewModel?.didSelectReciever(indexPath)
         }).disposed(by: disposeBag)
         
@@ -81,13 +88,6 @@ class AddMailViewController: BaseViewController {
             self?.inputToViewModel()
         }).disposed(by: disposeBag)
         
-        view.rx.tapGesture().when(.recognized).asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] _ in
-            print("Gesture")
-            self?.headerTextField.resignFirstResponder()
-            self?.themeTextField.resignFirstResponder()
-            self?.contentTextView.resignFirstResponder()
-        }).disposed(by: disposeBag)
-        
         sendButton.rx.tap.asDriver().drive(onNext: { [weak self] _ in
             self?.viewModel?.send()
         }).disposed(by: disposeBag)
@@ -98,19 +98,5 @@ private extension AddMailViewController {
     
     private func inputToViewModel() {
         viewModel?.enterInput(.init(header: headerTextField.text.orEmpty(), theme: themeTextField.text.orEmpty(), text: contentTextView.text.orEmpty(), reciever: ""))
-    }
-    
-    @objc private func didTapViewSpace() {
-        headerTextField.resignFirstResponder()
-        themeTextField.resignFirstResponder()
-        contentTextView.resignFirstResponder()
-    }
-}
-
-extension AddMailViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
-        viewModel?.didSelectReciever(indexPath)
     }
 }

@@ -36,6 +36,14 @@ class BusinessProfileViewController: BaseViewController {
             cell.textLabel?.textColor = item.titleColor
         }.disposed(by: disposeBag)
         
+        viewModel?.loadingRelay.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] _ in
+            self?.displayLoading()
+        }).disposed(by: disposeBag)
+        
+        viewModel?.endLoadingRelay.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] _ in
+            self?.displayEndLoading()
+        }).disposed(by: disposeBag)
+        
         viewModel?.inviteCodeRelay.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] code in
             UIPasteboard.general.string = code
             self?.presentFastAlert("Copied to clipboard")
@@ -43,11 +51,37 @@ class BusinessProfileViewController: BaseViewController {
         
         tableView.rx.modelSelected(BusinessProfileSetting.self).asDriver().drive(onNext: { [weak self] setting in
             self?.viewModel?.didSelectSetting(setting)
+            guard setting == .changeImage else { return }
+            self?.pickImage()
         }).disposed(by: disposeBag)
         
         backButton.rx.tap.asDriver().drive(onNext: { [weak self] _ in
             self?.coordinator?.back()
         }).disposed(by: disposeBag)
         
+        logoutButton.rx.tap.asDriver().drive(onNext: { [weak self] _ in
+            self?.viewModel?.signOut({ signedOut in
+                guard signedOut else { return }
+                self?.coordinator?.coordinateLogout()
+            })
+        }).disposed(by: disposeBag)
+    }
+}
+
+private extension BusinessProfileViewController {
+    
+    private func pickImage() {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+}
+
+extension BusinessProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        guard let image = info[.originalImage] as? UIImage else { return }
+        viewModel?.changeProfileImage(image)
     }
 }

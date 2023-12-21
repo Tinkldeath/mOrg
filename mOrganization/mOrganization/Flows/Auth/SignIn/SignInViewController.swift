@@ -84,6 +84,7 @@ final class SignInViewController: BaseInputViewController {
         }).disposed(by: disposeBag)
         
         viewModel?.signInEmployeeEvent.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] employee, message in
+            self?.displayEndLoading()
             if let employee = employee {
                 self?.presentAlert("Signed in", message, {
                     self?.coordinator?.coordinateUserFlow(for: employee)

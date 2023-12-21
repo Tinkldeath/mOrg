@@ -16,6 +16,7 @@ protocol AppCoordinator {
     func coordinateSignUpAsEmployee()
     func coordinatePrivacy()
     func coordinateTermsOfUse()
+    func coordinateLogout()
     // MARK: - Tab bar flows
     func coordinateUserFlow(for business: Business)
     func coordinateUserFlow(for employee: Employee)
@@ -24,6 +25,7 @@ protocol AppCoordinator {
     func coordinateFunctionalitySector(_ sector: FunctionalitySector)
     func coordinateAddMail()
     func coordinateBusinessProfile()
+    func coordinateEmployeeProfile()
     func back()
 }
 
@@ -109,6 +111,7 @@ final class GlobalCoordinator: AppCoordinator {
     
     func coordinateUserFlow(for employee: Employee) {
         managerFactory.businessManager.currentBusiness = employee.businessId
+        managerFactory.employeeManager.currentEmployee = employee.uid
         switch employee.type {
         case .employee:
             guard let vc: BaseTabBarController = UIStoryboard.instantiateViewController(.employee, "EmployeeTabBarController") else { return }
@@ -127,6 +130,17 @@ final class GlobalCoordinator: AppCoordinator {
         vc.viewModel = viewModel
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func coordinateEmployeeProfile() {
+        guard let vc: EmployeeProfileViewController = UIStoryboard.instantiateViewController(.employee, "EmployeeProfileViewController") else { return }
+        vc.viewModel = EmployeeProfileViewModel(managerFactory)
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func coordinateLogout() {
+        navigationController.popToRootViewController(animated: true)
     }
     
     func coordinateAddMail() {

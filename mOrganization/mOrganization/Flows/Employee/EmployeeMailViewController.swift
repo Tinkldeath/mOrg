@@ -38,5 +38,13 @@ class EmployeeMailViewController: BaseViewController {
         viewModel.mail.asDriver().drive(tableView.rx.items(cellIdentifier: "EmployeeMailCell", cellType: EmployeeMailCell.self)) { row, item, cell in
             cell.mail = item
         }.disposed(by: disposeBag)
+        
+        addButton.rx.tap.asDriver().drive(onNext: { [weak self] _ in
+            self?.coordinator?.coordinateAddMail()
+        }).disposed(by: disposeBag)
+        
+        profileButton.rx.tap.asDriver().drive(onNext: { [weak self] _ in
+            self?.coordinator?.coordinateEmployeeProfile()
+        }).disposed(by: disposeBag)
     }
 }

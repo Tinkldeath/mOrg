@@ -25,6 +25,7 @@ class BaseViewController: UIViewController {
         
     private lazy var swipeGesture: UISwipeGestureRecognizer = {
         let gesture = UISwipeGestureRecognizer(target: self, action: #selector(didSwipeLeft))
+        gesture.cancelsTouchesInView = false
         return gesture
     }()
 

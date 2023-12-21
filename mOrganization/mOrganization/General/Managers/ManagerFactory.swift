@@ -12,6 +12,7 @@ protocol ManagerFactory {
     var businessManager: BusinessManager { get }
     var employeeManager: EmployeeManager { get }
     var mailManager: MailManager { get }
+    var imageManager: ImageManager { get }
 }
 
 final class DefaultManagerFactory: ManagerFactory {
@@ -27,4 +28,6 @@ final class DefaultManagerFactory: ManagerFactory {
     let employeeManager: EmployeeManager = DefaultEmployeeManager(FirebaseDataStore.shared)
     
     let mailManager: MailManager = DefaultMailManager(FirebaseDataStore.shared)
+    
+    let imageManager: ImageManager = DefaultImageManager()
 }

@@ -14,6 +14,7 @@ struct Employee: DomainEntity {
     var type: EmployeeType
     var fullName: String
     var jobTitle: String
+    var imageUrl: String?
     
     static var collection: String {
         return "employee"

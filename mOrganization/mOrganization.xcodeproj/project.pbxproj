@@ -60,6 +60,10 @@
 		32C39BEA2B3408C4005192C6 /* AddMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C39BE92B3408C4005192C6 /* AddMailViewController.swift */; };
 		32C39BEC2B3418B3005192C6 /* MailReciever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C39BEB2B3418B3005192C6 /* MailReciever.swift */; };
 		32C39BEE2B341901005192C6 /* AddMailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C39BED2B341901005192C6 /* AddMailViewModel.swift */; };
+		32C691662B34729C00C4BF84 /* EmployeeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C691652B34729C00C4BF84 /* EmployeeProfileViewController.swift */; };
+		32C691682B34734900C4BF84 /* EmployeeProfileSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C691672B34734900C4BF84 /* EmployeeProfileSetting.swift */; };
+		32C6916A2B34739800C4BF84 /* EmployeeProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C691692B34739800C4BF84 /* EmployeeProfileViewModel.swift */; };
+		32C6916C2B3473D500C4BF84 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C6916B2B3473D500C4BF84 /* ImageManager.swift */; };
 		32E38B8A2B34402C004888A8 /* EmployeeMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E38B892B34402C004888A8 /* EmployeeMailViewController.swift */; };
 		32EB80532B3391F500555C4F /* FirebaseDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EB80522B3391F500555C4F /* FirebaseDataStore.swift */; };
 		32EB80552B3392E800555C4F /* BusinessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EB80542B3392E800555C4F /* BusinessManager.swift */; };
@@ -143,6 +147,10 @@
 		32C39BE92B3408C4005192C6 /* AddMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMailViewController.swift; sourceTree = "<group>"; };
 		32C39BEB2B3418B3005192C6 /* MailReciever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailReciever.swift; sourceTree = "<group>"; };
 		32C39BED2B341901005192C6 /* AddMailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMailViewModel.swift; sourceTree = "<group>"; };
+		32C691652B34729C00C4BF84 /* EmployeeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileViewController.swift; sourceTree = "<group>"; };
+		32C691672B34734900C4BF84 /* EmployeeProfileSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileSetting.swift; sourceTree = "<group>"; };
+		32C691692B34739800C4BF84 /* EmployeeProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileViewModel.swift; sourceTree = "<group>"; };
+		32C6916B2B3473D500C4BF84 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		32E38B892B34402C004888A8 /* EmployeeMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeMailViewController.swift; sourceTree = "<group>"; };
 		32EB80522B3391F500555C4F /* FirebaseDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataStore.swift; sourceTree = "<group>"; };
 		32EB80542B3392E800555C4F /* BusinessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessManager.swift; sourceTree = "<group>"; };
@@ -216,6 +224,7 @@
 		3209BFE42B32EDFC00E55233 /* Employee */ = {
 			isa = PBXGroup;
 			children = (
+				32C691642B34728B00C4BF84 /* Profile */,
 				3250EEB52B33CC0200618E11 /* Employee.storyboard */,
 				32E38B892B34402C004888A8 /* EmployeeMailViewController.swift */,
 			);
@@ -251,6 +260,7 @@
 				32EB80542B3392E800555C4F /* BusinessManager.swift */,
 				3250EEB32B33C65200618E11 /* EmployeeManager.swift */,
 				325D03292B33FA4600AFCC4D /* MailManager.swift */,
+				32C6916B2B3473D500C4BF84 /* ImageManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -470,6 +480,16 @@
 			path = Mail;
 			sourceTree = "<group>";
 		};
+		32C691642B34728B00C4BF84 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				32C691652B34729C00C4BF84 /* EmployeeProfileViewController.swift */,
+				32C691672B34734900C4BF84 /* EmployeeProfileSetting.swift */,
+				32C691692B34739800C4BF84 /* EmployeeProfileViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		32EB80512B3391D600555C4F /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -680,6 +700,7 @@
 			files = (
 				32E38B8A2B34402C004888A8 /* EmployeeMailViewController.swift in Sources */,
 				3250EEB02B33B8C400618E11 /* BusinessProfileSetting.swift in Sources */,
+				32C691662B34729C00C4BF84 /* EmployeeProfileViewController.swift in Sources */,
 				325D031F2B33D3CF00AFCC4D /* ControlViewController.swift in Sources */,
 				3250EEA92B33AB6B00618E11 /* BaseTabBarController.swift in Sources */,
 				3250EE9C2B339A2600618E11 /* SignUpEmployeeViewController.swift in Sources */,
@@ -691,6 +712,7 @@
 				32101EF62B08D3DE005F9DC3 /* Constants.swift in Sources */,
 				32EB80572B33970900555C4F /* Employee.swift in Sources */,
 				325750F12B00F092004A3DF3 /* AppDelegate.swift in Sources */,
+				32C6916A2B34739800C4BF84 /* EmployeeProfileViewModel.swift in Sources */,
 				3250EEA32B33A88000618E11 /* BusinessFunctionalityViewController.swift in Sources */,
 				3250EEB42B33C65200618E11 /* EmployeeManager.swift in Sources */,
 				32893AE02B01199700151AC4 /* DomainEntity.swift in Sources */,
@@ -716,7 +738,9 @@
 				325D03262B33DC8C00AFCC4D /* BusinessViewController.swift in Sources */,
 				329FDADA2B0133E6006678EE /* SignInViewModel.swift in Sources */,
 				329FDADC2B0134B1006678EE /* Extension + String.swift in Sources */,
+				32C691682B34734900C4BF84 /* EmployeeProfileSetting.swift in Sources */,
 				3257513A2B00FCA8004A3DF3 /* BaseViewController.swift in Sources */,
+				32C6916C2B3473D500C4BF84 /* ImageManager.swift in Sources */,
 				3250EEB22B33BA5B00618E11 /* BusinessProfileViewModel.swift in Sources */,
 				325D03312B3400B600AFCC4D /* BusinessMailViewController.swift in Sources */,
 				3284826E2B014F680099C1F1 /* TextViewModel.swift in Sources */,

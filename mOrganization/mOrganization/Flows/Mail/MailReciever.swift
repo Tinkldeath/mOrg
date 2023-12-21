@@ -11,4 +11,5 @@ struct MailReciever {
     var uid: String?
     var title: String
     var subtitle: String
+    var imageUrl: String?
 }
