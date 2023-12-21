@@ -13,9 +13,8 @@ class BunsinessFunctionalitySectorCell: UICollectionViewCell {
     
     var sector: FunctionalitySector? {
         didSet {
-            guard let sector = sector else { return }
-            sectorImageView.image = sector.associatedImage
-            sectorTitle.text = sector.localizedTitle
+            sectorImageView.image = sector?.associatedImage
+            sectorTitle.text = sector?.localizedTitle
         }
     }
     
@@ -45,6 +44,10 @@ class BusinessFunctionalityViewController: BaseViewController {
         sectorsRelay.asDriver().drive(collectionView.rx.items(cellIdentifier: "BunsinessFunctionalitySectorCell", cellType: BunsinessFunctionalitySectorCell.self)) { row, item, cell in
             cell.sector = item
         }.disposed(by: disposeBag)
+        
+        collectionView.rx.modelSelected(FunctionalitySector.self).asDriver().drive(onNext: { [weak self] sector in
+            self?.coordinator?.coordinateFunctionalitySector(sector)
+        }).disposed(by: disposeBag)
         
         profileButton.rx.tap.asDriver().drive(onNext: { [weak self] _ in
             self?.coordinator?.coordinateBusinessProfile()

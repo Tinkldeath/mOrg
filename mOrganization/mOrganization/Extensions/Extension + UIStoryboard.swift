@@ -15,6 +15,7 @@ enum Stroryboard: String {
     case employee = "Employee"
     case accountant = "Accountant"
     case manager = "Manager"
+    case sectors = "Sectors"
 }
 
 extension UIStoryboard {

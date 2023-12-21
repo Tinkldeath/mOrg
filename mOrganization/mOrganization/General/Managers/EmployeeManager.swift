@@ -8,6 +8,7 @@
 import Foundation
 
 protocol EmployeeManager: AnyObject {
+    var currentEmployee: String? { get set }
     func observeEmployee(for businessId: String, _ observer: @escaping ([Employee]) -> Void)
     func observeEmployee(_ uid: String, _ observer: @escaping (Employee?) -> Void)
     func createEmployee(_ employee: Employee, _ completion: @escaping BoolClosure)
@@ -16,6 +17,8 @@ protocol EmployeeManager: AnyObject {
 }
 
 final class DefaultEmployeeManager: EmployeeManager {
+    
+    var currentEmployee: String?
     
     private var datastore: BaseDataStore
     

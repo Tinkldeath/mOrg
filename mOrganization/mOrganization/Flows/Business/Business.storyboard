@@ -123,6 +123,7 @@
                 <tabBarController storyboardIdentifier="BusinessTabBarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DcA-Q2-dIl" customClass="BaseTabBarController" customModule="mOrganization" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9S7-Iv-euR">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -137,10 +138,10 @@
             </objects>
             <point key="canvasLocation" x="314" y="-34"/>
         </scene>
-        <!--View Controller-->
+        <!--Control View Controller-->
         <scene sceneID="XBc-DI-f9P">
             <objects>
-                <viewController id="ewE-bk-5kn" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ControlViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ewE-bk-5kn" customClass="ControlViewController" customModule="mOrganization" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pL8-gZ-Gun">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -152,11 +153,11 @@
                                     <size key="itemSize" width="150" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="10" minY="5" maxX="10" maxY="5"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="BunsinessControlSectorCell" id="Xcb-7h-zH2">
-                                        <rect key="frame" x="10" y="5" width="140" height="144.5"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="ControlCell" id="Xcb-7h-zH2" customClass="ControlCell" customModule="mOrganization" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="10" width="140" height="144.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="o1b-qq-e1h">
                                             <rect key="frame" x="0.0" y="0.0" width="140" height="144.5"/>
@@ -188,8 +189,7 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="sectorImageView" destination="nCV-EC-Reg" id="TAA-fb-j5q"/>
-                                            <outlet property="sectorTitle" destination="Tzy-ES-9tq" id="YKe-hW-vz2"/>
+                                            <outlet property="controlTitle" destination="Tzy-ES-9tq" id="BHM-xR-D4d"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -212,6 +212,10 @@
                             <color key="tintColor" systemColor="labelColor"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="Cw0-Z2-nNg" id="Dux-GA-dx5"/>
+                        <outlet property="profileButton" destination="LTn-0r-Dgi" id="bLf-nr-J28"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Qo-Yf-lB6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -280,10 +284,10 @@
             </objects>
             <point key="canvasLocation" x="1645" y="737"/>
         </scene>
-        <!--View Controller-->
+        <!--Business View Controller-->
         <scene sceneID="wTJ-JO-XS8">
             <objects>
-                <viewController id="zaq-Yo-WR4" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BusinessViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zaq-Yo-WR4" customClass="BusinessViewController" customModule="mOrganization" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tur-Tx-il6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -298,15 +302,15 @@
                                     <inset key="sectionInset" minX="10" minY="5" maxX="10" maxY="5"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="BunsinessSectorCell" id="PPu-a8-iI9">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="BusinessCell" id="PPu-a8-iI9" customClass="BusinessCell" customModule="mOrganization" customModuleProvider="target">
                                         <rect key="frame" x="10" y="5" width="140" height="144.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="F2K-3p-W1D">
                                             <rect key="frame" x="0.0" y="0.0" width="140" height="144.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.text.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="THW-4V-ea7">
-                                                    <rect key="frame" x="20" y="9" width="100" height="97.5"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="box.truck" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="THW-4V-ea7">
+                                                    <rect key="frame" x="20" y="8" width="100" height="100"/>
                                                     <color key="tintColor" systemColor="labelColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="100" id="XZQ-DR-OxW"/>
@@ -331,8 +335,8 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="sectorImageView" destination="THW-4V-ea7" id="9wb-d7-mjH"/>
-                                            <outlet property="sectorTitle" destination="9ng-Bt-ocq" id="SQn-BI-UWo"/>
+                                            <outlet property="businessImageView" destination="THW-4V-ea7" id="xiK-pz-Fgc"/>
+                                            <outlet property="businessLabel" destination="9ng-Bt-ocq" id="W5h-70-Dcr"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -355,6 +359,10 @@
                             <color key="tintColor" systemColor="labelColor"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="IMW-56-0HR" id="VJN-xN-cST"/>
+                        <outlet property="profileButton" destination="x6i-ZN-9Y8" id="0Bq-Zn-5sM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L9R-Qo-F96" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -402,9 +410,14 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="gear" catalog="system" id="dRi-ze-f3z">
                             <color key="tintColor" systemColor="labelColor"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="person" catalog="system" id="iX4-ZG-Qcp">
-                            <color key="tintColor" systemColor="labelColor"/>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="person" catalog="system" id="iX4-ZG-Qcp">
+                                <color key="tintColor" systemColor="labelColor"/>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="plus" catalog="system" id="nTt-FM-WWv">
+                                <color key="tintColor" systemColor="labelColor"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wke-5v-BR8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -508,9 +521,103 @@
             </objects>
             <point key="canvasLocation" x="2546" y="1509"/>
         </scene>
+        <!--Mail-->
+        <scene sceneID="lbw-c2-Xtv">
+            <objects>
+                <viewController storyboardIdentifier="BusinessMailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GEk-gz-Abm" customClass="BusinessMailViewController" customModule="mOrganization" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jeZ-M1-QWJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Olw-0E-iRS">
+                                <rect key="frame" x="0.0" y="52" width="375" height="563"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MailCell" rowHeight="80" id="Dwb-rR-4I1" customClass="BusinessMailCell" customModule="mOrganization" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dwb-rR-4I1" id="wKU-1S-qiC">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rkT-U2-HR4">
+                                                    <rect key="frame" x="16" y="11.5" width="50" height="49"/>
+                                                    <color key="tintColor" systemColor="labelColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="Wdq-cI-DNA"/>
+                                                        <constraint firstAttribute="height" constant="50" id="hxD-SZ-x4B"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6Rd-bR-FSE">
+                                                    <rect key="frame" x="76" y="11" width="273" height="39"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOM-aE-7A7">
+                                                            <rect key="frame" x="0.0" y="0.0" width="273" height="17"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOY-L6-zqc">
+                                                            <rect key="frame" x="0.0" y="22" width="273" height="17"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                            <color key="textColor" systemColor="systemGrayColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6Rd-bR-FSE" secondAttribute="trailing" constant="10" id="8R8-sZ-zzT"/>
+                                                <constraint firstItem="rkT-U2-HR4" firstAttribute="top" secondItem="wKU-1S-qiC" secondAttribute="topMargin" id="EtZ-1D-SQx"/>
+                                                <constraint firstItem="6Rd-bR-FSE" firstAttribute="top" secondItem="wKU-1S-qiC" secondAttribute="topMargin" id="WmD-bp-feg"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="rkT-U2-HR4" secondAttribute="bottom" id="Y90-Xu-myP"/>
+                                                <constraint firstItem="6Rd-bR-FSE" firstAttribute="leading" secondItem="rkT-U2-HR4" secondAttribute="trailing" constant="10" id="bFu-5Z-iU0"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="6Rd-bR-FSE" secondAttribute="bottom" id="hKq-Yf-52H"/>
+                                                <constraint firstItem="rkT-U2-HR4" firstAttribute="leading" secondItem="wKU-1S-qiC" secondAttribute="leadingMargin" id="k5z-FV-MA1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="mailHeader" destination="dOM-aE-7A7" id="Lc6-Tb-pwS"/>
+                                            <outlet property="mailTheme" destination="aOY-L6-zqc" id="I0j-bb-6iG"/>
+                                            <outlet property="senderImageView" destination="rkT-U2-HR4" id="u6H-Mk-EaS"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ji6-kf-FNs"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Olw-0E-iRS" firstAttribute="top" secondItem="ji6-kf-FNs" secondAttribute="top" constant="8" id="GaW-jY-UZz"/>
+                            <constraint firstItem="Olw-0E-iRS" firstAttribute="centerY" secondItem="jeZ-M1-QWJ" secondAttribute="centerY" id="Zp4-Jv-he0"/>
+                            <constraint firstItem="Olw-0E-iRS" firstAttribute="centerX" secondItem="jeZ-M1-QWJ" secondAttribute="centerX" id="cww-Zi-PhY"/>
+                            <constraint firstItem="Olw-0E-iRS" firstAttribute="leading" secondItem="ji6-kf-FNs" secondAttribute="leading" id="jds-ip-0KG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mail" id="s0O-1P-6js">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.left" catalog="system" id="1g7-Rd-i2z">
+                            <color key="tintColor" systemColor="labelColor"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="hwv-X5-ddA">
+                            <color key="tintColor" systemColor="labelColor"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="addButton" destination="hwv-X5-ddA" id="Bhw-Ep-3UZ"/>
+                        <outlet property="backButton" destination="1g7-Rd-i2z" id="qLZ-w1-I8P"/>
+                        <outlet property="tableView" destination="Olw-0E-iRS" id="r0r-qD-F3v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rD6-2j-yCC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2545" y="736"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.forward.to.line" catalog="system" width="128" height="88"/>
+        <image name="box.truck" catalog="system" width="128" height="90"/>
         <image name="briefcase" catalog="system" width="128" height="100"/>
         <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="cursorarrow.and.square.on.square.dashed" catalog="system" width="128" height="122"/>
@@ -520,6 +627,7 @@
         <image name="person.2" catalog="system" width="128" height="82"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
         <image name="person.text.rectangle" catalog="system" width="128" height="93"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

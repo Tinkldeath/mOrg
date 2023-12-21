@@ -5,6 +5,7 @@ target 'mOrganization' do
 	
 	pod 'RxSwift'
 	pod 'RxCocoa'
+  pod 'RxGesture'
 	pod 'SwiftGen'
   pod 'FirebaseAuth'
   pod 'FirebaseStorage'

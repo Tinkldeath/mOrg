@@ -10,14 +10,19 @@ import UIKit
 
 protocol AppCoordinator {
     func start()
+    // MARK: - Auth
     func coordinateSignIn()
     func coordinateSignUpAsBusiness()
     func coordinateSignUpAsEmployee()
     func coordinatePrivacy()
     func coordinateTermsOfUse()
+    // MARK: - Tab bar flows
     func coordinateUserFlow(for business: Business)
     func coordinateUserFlow(for employee: Employee)
+    
+    // MARK: - Sectors
     func coordinateFunctionalitySector(_ sector: FunctionalitySector)
+    func coordinateAddMail()
     func coordinateBusinessProfile()
     func back()
 }
@@ -31,7 +36,7 @@ final class GlobalCoordinator: AppCoordinator {
     }()
     
     private let authManager: AuthManager = DefaultAuthManager()
-    private var managerFactory = DefaultManagerFactory()
+    private var managerFactory = DefaultManagerFactory.shared
     private var window: UIWindow?
     
     init(_ window: UIWindow?) {
@@ -83,19 +88,32 @@ final class GlobalCoordinator: AppCoordinator {
     }
     
     func coordinateFunctionalitySector(_ sector: FunctionalitySector) {
-        // TODO: - Display screen based on user
+        switch sector {
+        case .mail:
+            let viewModel = MailViewModel(managerFactory)
+            guard let vc: BusinessMailViewController = UIStoryboard.instantiateViewController(.business, "BusinessMailViewController") else { return }
+            vc.viewModel = viewModel
+            vc.coordinator = self
+            navigationController.pushViewController(vc, animated: true)
+        case .documents:
+            break
+        }
     }
     
     func coordinateUserFlow(for business: Business) {
+        managerFactory.businessManager.currentBusiness = business.uid
         guard let vc: BaseTabBarController = UIStoryboard.instantiateViewController(.business, "BusinessTabBarController") else { return }
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
     
     func coordinateUserFlow(for employee: Employee) {
+        managerFactory.businessManager.currentBusiness = employee.businessId
         switch employee.type {
         case .employee:
-            break
+            guard let vc: BaseTabBarController = UIStoryboard.instantiateViewController(.employee, "EmployeeTabBarController") else { return }
+            vc.coordinator = self
+            navigationController.pushViewController(vc, animated: true)
         case .accountant:
             break
         case .manager:
@@ -107,6 +125,13 @@ final class GlobalCoordinator: AppCoordinator {
         guard let vc: BusinessProfileViewController = UIStoryboard.instantiateViewController(.business, "BusinessProfileViewController") else { return }
         let viewModel = BusinessProfileViewModel(managerFactory)
         vc.viewModel = viewModel
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func coordinateAddMail() {
+        guard let vc: AddMailViewController = UIStoryboard.instantiateViewController(.sectors, "AddMailViewController") else { return }
+        vc.viewModel = AddMailViewModel(managerFactory)
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }

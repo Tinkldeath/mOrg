@@ -39,6 +39,14 @@ final class FirebaseDataStore: BaseDataStore {
         listeners.append(listener)
     }
     
+    func observeCollection<T>(of type: T.Type, with field: String, isEqual toField: String, _ observer: @escaping ([T]) -> Void) where T : DomainEntity {
+        let listener = firestore.collection(T.collection).whereField(field, isEqualTo: toField).addSnapshotListener { snapshot, error in
+            guard let entities = snapshot?.documents.compactMap({ try? $0.data(as: T.self) }), error == nil else { observer([]); return }
+            observer(entities)
+        }
+        listeners.append(listener)
+    }
+    
     func observeBusinessCollection<T>(of type: T.Type, _ businessId: String, _ observer: @escaping ([T]) -> Void) where T : DomainEntity {
         let listener = firestore.collection(T.collection).whereField("businessId", isEqualTo: businessId).addSnapshotListener { snapshot, error in
             guard let entities = snapshot?.documents.compactMap({ try? $0.data(as: T.self) }), error == nil else { observer([]); return }

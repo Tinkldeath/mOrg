@@ -49,6 +49,5 @@ class BusinessProfileViewController: BaseViewController {
             self?.coordinator?.back()
         }).disposed(by: disposeBag)
         
-        
     }
 }

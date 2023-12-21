@@ -8,7 +8,9 @@
 import Foundation
 import FirebaseFirestoreSwift
 
-protocol BusinessManager {
+protocol BusinessManager: AnyObject {
+    var currentBusiness: String? { get set }
+    
     func businessId(_ businessCode: String, _ completion: @escaping StringClosure)
     func observeBusiness(_ businessId: String, _ completion: @escaping (Business?) -> Void)
     func createBusiness(_ business: Business, _ completion: @escaping StringClosure)
@@ -17,6 +19,8 @@ protocol BusinessManager {
 }
 
 final class DefaultBusinessManager: BusinessManager {
+    
+    var currentBusiness: String?
     
     private var datastore: BaseDataStore
     

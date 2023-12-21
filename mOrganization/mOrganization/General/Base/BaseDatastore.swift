@@ -13,6 +13,7 @@ typealias StringClosure = (String?) -> Void
 protocol BaseDataStore {
     func observeObject<T: DomainEntity>(of type: T.Type, _ uid: String, _ observer: @escaping (T?) -> Void)
     func observeCollection<T: DomainEntity>(of type: T.Type, _ observer: @escaping ([T]) -> Void)
+    func observeCollection<T: DomainEntity>(of type: T.Type, with field: String, isEqual toField: String, _ observer: @escaping ([T]) -> Void)
     func observeBusinessCollection<T: DomainEntity>(of type: T.Type, _ businessId: String, _ observer: @escaping ([T]) -> Void)
     func create<T: DomainEntity>(_ entity: T, _ completion: StringClosure?)
     func update<T: DomainEntity>(_ entity: T, _ completion: BoolClosure?)

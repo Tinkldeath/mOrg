@@ -23,10 +23,12 @@ final class SignInViewModel {
     
     private var authManager: AuthManager
     private var businessManager: BusinessManager
+    private var employeeManager: EmployeeManager
     
     init(_ managerFactory: ManagerFactory) {
         self.authManager = managerFactory.authManager
         self.businessManager = managerFactory.businessManager
+        self.employeeManager = managerFactory.employeeManager
     }
     
     func enterInput(_ input: Input) {
@@ -47,7 +49,15 @@ final class SignInViewModel {
     }
     
     func signInAsEmployee() {
-        
+        guard let input = lastInput else { return }
+        signInStartEvent.accept(())
+        authManager.signIn((email: input.email, password: input.password)) { [weak self] employeeId in
+            guard let employeeId = employeeId else { self?.signInEmployeeEvent.accept((nil, "Incorrect email or password")); return };
+            self?.employeeManager.observeEmployee(employeeId, { employee in
+                guard let employee = employee else { self?.signInEmployeeEvent.accept((nil, "User does not registered as business, try sign in as employee")); return }
+                self?.signInEmployeeEvent.accept((employee, "Signed in"))
+            })
+        }
     }
 }
 

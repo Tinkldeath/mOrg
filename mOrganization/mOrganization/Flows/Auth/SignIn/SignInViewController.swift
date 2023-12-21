@@ -34,8 +34,24 @@ final class SignInViewController: BaseInputViewController {
         viewModel?.isInputValid.asDriver().drive(signInAsBusinessButton.rx.isEnabled).disposed(by: disposeBag)
         viewModel?.isInputValid.asDriver().drive(signInAsEmployeeButton.rx.isEnabled).disposed(by: disposeBag)
         
+        viewModel?.signInStartEvent.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] _ in
+            self?.displayLoading()
+        }).disposed(by: disposeBag)
+        
         signInAsBusinessButton.rx.tap.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] _ in
             self?.viewModel?.signInAsBusiness()
+        }).disposed(by: disposeBag)
+        
+        signInAsEmployeeButton.rx.tap.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] _ in
+            self?.viewModel?.signInAsEmployee()
+        }).disposed(by: disposeBag)
+        
+        signUpAsBusinessButton.rx.tap.asDriver().drive(onNext: { [weak self] _ in
+            self?.coordinator?.coordinateSignUpAsBusiness()
+        }).disposed(by: disposeBag)
+        
+        signUpAsEmployeeButton.rx.tap.asDriver().drive(onNext: { [weak self] _ in
+            self?.coordinator?.coordinateSignUpAsEmployee()
         }).disposed(by: disposeBag)
         
         emailTextField.rx.text.changed.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] _ in
@@ -52,10 +68,6 @@ final class SignInViewController: BaseInputViewController {
         
         termsButton.rx.tap.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] _ in
             self?.coordinator?.coordinateTermsOfUse()
-        }).disposed(by: disposeBag)
-        
-        viewModel?.signInStartEvent.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] _ in
-            self?.displayLoading()
         }).disposed(by: disposeBag)
         
         viewModel?.signInBusinessEvent.asDriver(onErrorDriveWith: .never()).drive(onNext: { [weak self] business, message in

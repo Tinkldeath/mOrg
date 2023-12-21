@@ -25,6 +25,7 @@
 		3250EEB02B33B8C400618E11 /* BusinessProfileSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3250EEAF2B33B8C400618E11 /* BusinessProfileSetting.swift */; };
 		3250EEB22B33BA5B00618E11 /* BusinessProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3250EEB12B33BA5B00618E11 /* BusinessProfileViewModel.swift */; };
 		3250EEB42B33C65200618E11 /* EmployeeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3250EEB32B33C65200618E11 /* EmployeeManager.swift */; };
+		3250EEB62B33CC0200618E11 /* Employee.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3250EEB52B33CC0200618E11 /* Employee.storyboard */; };
 		325750F12B00F092004A3DF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325750F02B00F092004A3DF3 /* AppDelegate.swift */; };
 		325750FA2B00F094004A3DF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 325750F92B00F094004A3DF3 /* Assets.xcassets */; };
 		325750FD2B00F094004A3DF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 325750FB2B00F094004A3DF3 /* LaunchScreen.storyboard */; };
@@ -35,6 +36,17 @@
 		325751352B00F3D7004A3DF3 /* Extension + UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325751342B00F3D7004A3DF3 /* Extension + UIStoryboard.swift */; };
 		325751372B00F78B004A3DF3 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325751362B00F78B004A3DF3 /* SignInViewController.swift */; };
 		3257513A2B00FCA8004A3DF3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325751392B00FCA8004A3DF3 /* BaseViewController.swift */; };
+		325D03162B33D16000AFCC4D /* Accountant.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 325D03152B33D16000AFCC4D /* Accountant.storyboard */; };
+		325D031A2B33D2CF00AFCC4D /* Manager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 325D03192B33D2CF00AFCC4D /* Manager.storyboard */; };
+		325D031C2B33D36500AFCC4D /* ControlSector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325D031B2B33D36500AFCC4D /* ControlSector.swift */; };
+		325D031F2B33D3CF00AFCC4D /* ControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325D031E2B33D3CF00AFCC4D /* ControlViewController.swift */; };
+		325D03232B33DA5400AFCC4D /* BusinessSector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325D03222B33DA5400AFCC4D /* BusinessSector.swift */; };
+		325D03262B33DC8C00AFCC4D /* BusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325D03252B33DC8C00AFCC4D /* BusinessViewController.swift */; };
+		325D03282B33E15700AFCC4D /* Sectors.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 325D03272B33E15700AFCC4D /* Sectors.storyboard */; };
+		325D032A2B33FA4600AFCC4D /* MailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325D03292B33FA4600AFCC4D /* MailManager.swift */; };
+		325D032C2B33FA5B00AFCC4D /* Mail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325D032B2B33FA5B00AFCC4D /* Mail.swift */; };
+		325D032F2B33FF4F00AFCC4D /* MailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325D032E2B33FF4F00AFCC4D /* MailViewModel.swift */; };
+		325D03312B3400B600AFCC4D /* BusinessMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325D03302B3400B600AFCC4D /* BusinessMailViewController.swift */; };
 		3284826C2B014F280099C1F1 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3284826B2B014F280099C1F1 /* TextViewController.swift */; };
 		3284826E2B014F680099C1F1 /* TextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3284826D2B014F680099C1F1 /* TextViewModel.swift */; };
 		328482722B0154540099C1F1 /* Terms.md in Resources */ = {isa = PBXBuildFile; fileRef = 328482702B0153560099C1F1 /* Terms.md */; };
@@ -45,6 +57,10 @@
 		329FDADA2B0133E6006678EE /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329FDAD92B0133E6006678EE /* SignInViewModel.swift */; };
 		329FDADC2B0134B1006678EE /* Extension + String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329FDADB2B0134B1006678EE /* Extension + String.swift */; };
 		329FDADE2B013772006678EE /* SignUpBusinessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329FDADD2B013772006678EE /* SignUpBusinessViewModel.swift */; };
+		32C39BEA2B3408C4005192C6 /* AddMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C39BE92B3408C4005192C6 /* AddMailViewController.swift */; };
+		32C39BEC2B3418B3005192C6 /* MailReciever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C39BEB2B3418B3005192C6 /* MailReciever.swift */; };
+		32C39BEE2B341901005192C6 /* AddMailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C39BED2B341901005192C6 /* AddMailViewModel.swift */; };
+		32E38B8A2B34402C004888A8 /* EmployeeMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E38B892B34402C004888A8 /* EmployeeMailViewController.swift */; };
 		32EB80532B3391F500555C4F /* FirebaseDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EB80522B3391F500555C4F /* FirebaseDataStore.swift */; };
 		32EB80552B3392E800555C4F /* BusinessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EB80542B3392E800555C4F /* BusinessManager.swift */; };
 		32EB80572B33970900555C4F /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EB80562B33970900555C4F /* Employee.swift */; };
@@ -88,6 +104,7 @@
 		3250EEAF2B33B8C400618E11 /* BusinessProfileSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessProfileSetting.swift; sourceTree = "<group>"; };
 		3250EEB12B33BA5B00618E11 /* BusinessProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessProfileViewModel.swift; sourceTree = "<group>"; };
 		3250EEB32B33C65200618E11 /* EmployeeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeManager.swift; sourceTree = "<group>"; };
+		3250EEB52B33CC0200618E11 /* Employee.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Employee.storyboard; sourceTree = "<group>"; };
 		325750ED2B00F092004A3DF3 /* mOrganization.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mOrganization.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		325750F02B00F092004A3DF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		325750F92B00F094004A3DF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +119,17 @@
 		325751342B00F3D7004A3DF3 /* Extension + UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIStoryboard.swift"; sourceTree = "<group>"; };
 		325751362B00F78B004A3DF3 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		325751392B00FCA8004A3DF3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		325D03152B33D16000AFCC4D /* Accountant.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Accountant.storyboard; sourceTree = "<group>"; };
+		325D03192B33D2CF00AFCC4D /* Manager.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Manager.storyboard; sourceTree = "<group>"; };
+		325D031B2B33D36500AFCC4D /* ControlSector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlSector.swift; sourceTree = "<group>"; };
+		325D031E2B33D3CF00AFCC4D /* ControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlViewController.swift; sourceTree = "<group>"; };
+		325D03222B33DA5400AFCC4D /* BusinessSector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSector.swift; sourceTree = "<group>"; };
+		325D03252B33DC8C00AFCC4D /* BusinessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessViewController.swift; sourceTree = "<group>"; };
+		325D03272B33E15700AFCC4D /* Sectors.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sectors.storyboard; sourceTree = "<group>"; };
+		325D03292B33FA4600AFCC4D /* MailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailManager.swift; sourceTree = "<group>"; };
+		325D032B2B33FA5B00AFCC4D /* Mail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mail.swift; sourceTree = "<group>"; };
+		325D032E2B33FF4F00AFCC4D /* MailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailViewModel.swift; sourceTree = "<group>"; };
+		325D03302B3400B600AFCC4D /* BusinessMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessMailViewController.swift; sourceTree = "<group>"; };
 		3284826B2B014F280099C1F1 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		3284826D2B014F680099C1F1 /* TextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewModel.swift; sourceTree = "<group>"; };
 		328482702B0153560099C1F1 /* Terms.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Terms.md; sourceTree = "<group>"; };
@@ -112,6 +140,10 @@
 		329FDAD92B0133E6006678EE /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		329FDADB2B0134B1006678EE /* Extension + String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + String.swift"; sourceTree = "<group>"; };
 		329FDADD2B013772006678EE /* SignUpBusinessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpBusinessViewModel.swift; sourceTree = "<group>"; };
+		32C39BE92B3408C4005192C6 /* AddMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMailViewController.swift; sourceTree = "<group>"; };
+		32C39BEB2B3418B3005192C6 /* MailReciever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailReciever.swift; sourceTree = "<group>"; };
+		32C39BED2B341901005192C6 /* AddMailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMailViewModel.swift; sourceTree = "<group>"; };
+		32E38B892B34402C004888A8 /* EmployeeMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeMailViewController.swift; sourceTree = "<group>"; };
 		32EB80522B3391F500555C4F /* FirebaseDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataStore.swift; sourceTree = "<group>"; };
 		32EB80542B3392E800555C4F /* BusinessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessManager.swift; sourceTree = "<group>"; };
 		32EB80562B33970900555C4F /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
@@ -149,6 +181,8 @@
 			isa = PBXGroup;
 			children = (
 				325750FB2B00F094004A3DF3 /* LaunchScreen.storyboard */,
+				325D03272B33E15700AFCC4D /* Sectors.storyboard */,
+				32C39BE82B34039B005192C6 /* Mail */,
 				3209BFE62B32EFF700E55233 /* Auth */,
 				3209BFE52B32EE0100E55233 /* Accountant */,
 				3209BFE42B32EDFC00E55233 /* Employee */,
@@ -162,6 +196,9 @@
 			isa = PBXGroup;
 			children = (
 				3250EE9F2B33A65700618E11 /* Business.storyboard */,
+				325D032D2B33FF3F00AFCC4D /* Mail */,
+				325D03242B33DC7D00AFCC4D /* Business */,
+				325D031D2B33D3B500AFCC4D /* Control */,
 				3250EEAC2B33B86600618E11 /* Profile */,
 				3250EEA12B33A86200618E11 /* Functionality */,
 			);
@@ -171,6 +208,7 @@
 		3209BFE32B32EDF700E55233 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				325D03192B33D2CF00AFCC4D /* Manager.storyboard */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -178,6 +216,8 @@
 		3209BFE42B32EDFC00E55233 /* Employee */ = {
 			isa = PBXGroup;
 			children = (
+				3250EEB52B33CC0200618E11 /* Employee.storyboard */,
+				32E38B892B34402C004888A8 /* EmployeeMailViewController.swift */,
 			);
 			path = Employee;
 			sourceTree = "<group>";
@@ -185,6 +225,7 @@
 		3209BFE52B32EE0100E55233 /* Accountant */ = {
 			isa = PBXGroup;
 			children = (
+				325D03152B33D16000AFCC4D /* Accountant.storyboard */,
 			);
 			path = Accountant;
 			sourceTree = "<group>";
@@ -209,6 +250,7 @@
 				3287F8F22B08F2F800F7A4D2 /* SecurityManager.swift */,
 				32EB80542B3392E800555C4F /* BusinessManager.swift */,
 				3250EEB32B33C65200618E11 /* EmployeeManager.swift */,
+				325D03292B33FA4600AFCC4D /* MailManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -236,6 +278,7 @@
 				32893ADF2B01199700151AC4 /* DomainEntity.swift */,
 				3235E91B2B01169B00B939C3 /* Business.swift */,
 				32EB80562B33970900555C4F /* Employee.swift */,
+				325D032B2B33FA5B00AFCC4D /* Mail.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -244,6 +287,8 @@
 			isa = PBXGroup;
 			children = (
 				3250EEA62B33A95C00618E11 /* FunctionalitySector.swift */,
+				325D031B2B33D36500AFCC4D /* ControlSector.swift */,
+				325D03222B33DA5400AFCC4D /* BusinessSector.swift */,
 			);
 			path = Sectors;
 			sourceTree = "<group>";
@@ -372,6 +417,30 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		325D031D2B33D3B500AFCC4D /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				325D031E2B33D3CF00AFCC4D /* ControlViewController.swift */,
+			);
+			path = Control;
+			sourceTree = "<group>";
+		};
+		325D03242B33DC7D00AFCC4D /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				325D03252B33DC8C00AFCC4D /* BusinessViewController.swift */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		325D032D2B33FF3F00AFCC4D /* Mail */ = {
+			isa = PBXGroup;
+			children = (
+				325D03302B3400B600AFCC4D /* BusinessMailViewController.swift */,
+			);
+			path = Mail;
+			sourceTree = "<group>";
+		};
 		3284826A2B014EEF0099C1F1 /* Privacy and Terms */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,6 +457,17 @@
 				3250EE9D2B339A3A00618E11 /* SignUpEmployeeViewModel.swift */,
 			);
 			path = SignUpEmployee;
+			sourceTree = "<group>";
+		};
+		32C39BE82B34039B005192C6 /* Mail */ = {
+			isa = PBXGroup;
+			children = (
+				325D032E2B33FF4F00AFCC4D /* MailViewModel.swift */,
+				32C39BE92B3408C4005192C6 /* AddMailViewController.swift */,
+				32C39BEB2B3418B3005192C6 /* MailReciever.swift */,
+				32C39BED2B341901005192C6 /* AddMailViewModel.swift */,
+			);
+			path = Mail;
 			sourceTree = "<group>";
 		};
 		32EB80512B3391D600555C4F /* Data */ = {
@@ -522,12 +602,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				3250EEA02B33A65700618E11 /* Business.storyboard in Resources */,
+				325D031A2B33D2CF00AFCC4D /* Manager.storyboard in Resources */,
 				328482722B0154540099C1F1 /* Terms.md in Resources */,
+				325D03282B33E15700AFCC4D /* Sectors.storyboard in Resources */,
+				3250EEB62B33CC0200618E11 /* Employee.storyboard in Resources */,
 				328482732B0154540099C1F1 /* Privacy.md in Resources */,
 				325750FD2B00F094004A3DF3 /* LaunchScreen.storyboard in Resources */,
 				3235E9192B01162300B939C3 /* GoogleService-Info.plist in Resources */,
 				3250EE982B3397A700618E11 /* Auth.storyboard in Resources */,
 				325750FA2B00F094004A3DF3 /* Assets.xcassets in Resources */,
+				325D03162B33D16000AFCC4D /* Accountant.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,10 +678,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32E38B8A2B34402C004888A8 /* EmployeeMailViewController.swift in Sources */,
 				3250EEB02B33B8C400618E11 /* BusinessProfileSetting.swift in Sources */,
+				325D031F2B33D3CF00AFCC4D /* ControlViewController.swift in Sources */,
 				3250EEA92B33AB6B00618E11 /* BaseTabBarController.swift in Sources */,
 				3250EE9C2B339A2600618E11 /* SignUpEmployeeViewController.swift in Sources */,
 				3250EEAE2B33B88700618E11 /* BusinessProfileViewController.swift in Sources */,
+				325D032F2B33FF4F00AFCC4D /* MailViewModel.swift in Sources */,
 				3250EE9A2B33980700618E11 /* SignUpBusinessViewController.swift in Sources */,
 				3257512E2B00F2CE004A3DF3 /* AppCoordinator.swift in Sources */,
 				3287F8F32B08F2F800F7A4D2 /* SecurityManager.swift in Sources */,
@@ -615,16 +702,25 @@
 				32EB80552B3392E800555C4F /* BusinessManager.swift in Sources */,
 				32101EFA2B08DDB3005F9DC3 /* ManagerFactory.swift in Sources */,
 				32101EF22B08CFA2005F9DC3 /* AuthManager.swift in Sources */,
+				325D032A2B33FA4600AFCC4D /* MailManager.swift in Sources */,
+				32C39BEC2B3418B3005192C6 /* MailReciever.swift in Sources */,
 				329FDADE2B013772006678EE /* SignUpBusinessViewModel.swift in Sources */,
+				32C39BEA2B3408C4005192C6 /* AddMailViewController.swift in Sources */,
 				3250EEA72B33A95C00618E11 /* FunctionalitySector.swift in Sources */,
+				325D032C2B33FA5B00AFCC4D /* Mail.swift in Sources */,
+				32C39BEE2B341901005192C6 /* AddMailViewModel.swift in Sources */,
 				32EB80532B3391F500555C4F /* FirebaseDataStore.swift in Sources */,
+				325D03232B33DA5400AFCC4D /* BusinessSector.swift in Sources */,
 				325751372B00F78B004A3DF3 /* SignInViewController.swift in Sources */,
 				325751352B00F3D7004A3DF3 /* Extension + UIStoryboard.swift in Sources */,
+				325D03262B33DC8C00AFCC4D /* BusinessViewController.swift in Sources */,
 				329FDADA2B0133E6006678EE /* SignInViewModel.swift in Sources */,
 				329FDADC2B0134B1006678EE /* Extension + String.swift in Sources */,
 				3257513A2B00FCA8004A3DF3 /* BaseViewController.swift in Sources */,
 				3250EEB22B33BA5B00618E11 /* BusinessProfileViewModel.swift in Sources */,
+				325D03312B3400B600AFCC4D /* BusinessMailViewController.swift in Sources */,
 				3284826E2B014F680099C1F1 /* TextViewModel.swift in Sources */,
+				325D031C2B33D36500AFCC4D /* ControlSector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

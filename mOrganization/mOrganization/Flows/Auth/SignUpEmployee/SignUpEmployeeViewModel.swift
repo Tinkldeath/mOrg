@@ -60,7 +60,7 @@ extension SignUpEmployeeViewModel {
         var password: String
         
         func isValid() -> Bool {
-            return !fullName.isEmpty && !jobTitle.isEmpty && !email.isValidEmail() && !password.isValidPassword() && businessInviteCode.count == 16
+            return !fullName.isEmpty && !jobTitle.isEmpty && email.isValidEmail() && password.isValidPassword() && businessInviteCode.count == 16
         }
     }
 }
